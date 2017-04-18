@@ -1,0 +1,43 @@
+body{
+	background-image: url('http://www.pepessb.com/img/hero/home.jpg');
+	background-attachment: fixed;
+	background-repeat: repeat-y;
+	color: #edefc4;
+	text-decoration: none;
+	margin-top: 5%;
+}
+.container {
+	opacity: 0.7;
+	border: solid #edefc4 4px;
+	border-radius: 25px;
+	max-width: 800px;
+	background-color:#494d66 ;
+}
+.container:hover{
+	opacity: 1.0;
+}
+a{
+	color: #edefc4;
+}
+.heading{
+	border-bottom: solid #edefc4 2px;
+	text-align: center;
+}
+.menuName{
+	font-size: 30px;
+}
+.price{
+	text-align: right;
+}
+.restaurant_name{
+	font-size: 20px;
+}
+.containeredit{
+	color:black;
+	font-weight: 400;
+}
+.button{
+	padding: 1px 14px;
+	color: black;
+	border-radius: 12px;
+}

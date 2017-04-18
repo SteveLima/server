@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename = 'bootstrap.min.css')}}">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+	<form action="#" method="POST">
+
+	<h1>Edit {{restaurant.name}} </h1>
+
+	<p>Name:</p>
+		<input type="text" size = '30' name="name" placeholder={{restaurant.name}}>
+
+	<input class="button" type="submit" value="Edit">
+	<br>
+	<br>
+	<a href="{{url_for('showRestaurants')}}">Cancel</a>
+	<br>
+	</form>
+</div>
+</body>
+</html>

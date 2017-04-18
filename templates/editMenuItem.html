@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename = 'bootstrap.min.css')}}">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+	
+	<form action="#" method="POST">
+
+	<h1>Edit {{item.name}} values:</h1>
+
+	<p>Name:</p>
+		<input type="text" size = '30' name="name" placeholder="{{item.name}}">
+	<p>price:</p>
+		<input type="text" size = '30' name="price" placeholder="{{item.price}}">
+	<p>description:</p>
+		<input type="text" size = '100' name="description" placeholder="{{item.description}}">
+	<p>course:</p>
+		<input type="radio" name="course" value="Appetizer" > Appetizer <br>
+		<input type="radio" name="course" value="Entree" > Entree <br>
+		<input type="radio" name="course" value="Dessert" > Dessert <br>
+		<input type="radio" name="course" value="Beverage" > Beverage <br>
+
+	<input class="button" type="submit" value="Edit">
+	<a href="{{url_for('showMenu', restaurant_id = restaurant_id)}}">Cancel</a>
+
+	</form>
+</div>
+</body>
+</html>
