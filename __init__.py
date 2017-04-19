@@ -235,7 +235,7 @@ def newRestaurant():
         newrestaurant = Restaurant(
             name=request.form['name'],
             user_id=login_session['user_id'])
-	session.begin()
+        session.begin()
         session.add(newrestaurant)
         session.commit()
         flash('New restaurant created!')
@@ -254,17 +254,17 @@ def editRestaurant(restaurant_id):
         if request.method == 'POST':
             if request.form['name']:
                 editedrestaurant.name = request.form['name']
-		session.begin()
+                session.begin()
                 session.add(editedrestaurant)
                 session.commit
                 flash('Restaurant sucessfully edited')
                 return redirect(url_for('showRestaurants'))
-            else:
-                restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
-                return render_template(
-                    'editRestaurant.html',
-                    restaurant_id=restaurant_id,
-                    restaurant=restaurant)
+        else:
+            restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
+            return render_template(
+                'editRestaurant.html',
+                restaurant_id=restaurant_id,
+                restaurant=restaurant)
 
 
 @app.route('/restaurant/<int:restaurant_id>/delete', methods=['GET', 'POST'])
@@ -277,7 +277,7 @@ def deleteRestaurant(restaurant_id):
         return redirect(url_for('showRestaurants'))
 
     if request.method == 'POST':
-	session.begin()
+        session.begin()
         session.delete(deleterestaurant)
         session.commit()
         flash('Restaurant sucessfully deleted')
@@ -319,8 +319,9 @@ def newMenuItem(restaurant_id):
             price=request.form['price'],
             description=request.form['description'],
             course=request.form['course'],
+            user_id=login_session['user_id'],
             restaurant_id=restaurant_id)
-	session.begin()
+        session.begin()
         session.add(newmenuitem)
         session.commit()
         flash("new menu item created!")
@@ -345,7 +346,7 @@ def editMenuItem(restaurant_id, menu_id):
         editmenuitem.price = request.form['price']
         editmenuitem.description = request.form['description']
         editmenuitem.course = request.form['course']
-	session.begin()
+        session.begin()
         session.add(editmenuitem)
         session.commit()
         flash("Menu item was edited")
@@ -369,7 +370,7 @@ def deleteMenuItem(restaurant_id, menu_id):
 
 
     if request.method == 'POST':
-	session.begin()
+        session.begin()
         session.delete(item)
         session.commit()
         flash("Menu item was deleted")
@@ -385,3 +386,4 @@ if (__name__) == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
     app.run()
+# comment
